@@ -1,0 +1,15 @@
+{
+  "name": "@mdrnio/cli",
+  "version": "0.2.1",
+  "license": "MIT",
+  "homepage": "https://mdrn.io/docs/cli/",
+  "repository": { "type": "git", "url": "git+https://github.com/mdrn-io/cli.git" },
+  "bugs": "https://github.com/mdrn-io/cli/issues",
+  "type": "module",
+  "files": ["src", "README.md"],
+  "bin": { "mdrn": "./src/main.js" },
+  "exports": { "./config": "./src/config.js", "./auth": "./src/auth.js" },
+  "scripts": { "test": "node scripts/sync-contract.mjs --check ../docs/site/mdrn-mvp.openapi.json && node --test" },
+  "engines": { "node": ">=20" },
+  "publishConfig": { "access": "public" }
+}

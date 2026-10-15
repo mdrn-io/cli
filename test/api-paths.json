@@ -1,0 +1,29 @@
+{
+  "comment": "One table for the raw-path rule the CLI (cli/src/client.js) and the MCP server (mcp/src/server.js) share as safeApiPath: both test suites run every case. The MCP server then narrows a safe path to its read-only allowlist.",
+  "safe": [
+    "/v1/platform/projects",
+    "/v1/platform/projects?workspaceId=workspace%20one",
+    "/v1/platform/operations/op_one",
+    "/v1/platform/usage?workspaceId=w&periodId=period%20one",
+    "/v1/deploy/domains/dom_1"
+  ],
+  "unsafe": [
+    "v1/platform/projects",
+    "/platform/projects",
+    "//evil.test/v1/x",
+    "https://example.com/v1/platform/projects",
+    "/v1/../internal/secrets",
+    "/v1/platform/./projects",
+    "/v1/platform/%2e%2e/secrets",
+    "/v1/platform/%2E/projects",
+    "/v1/platform/projects%2fsecret",
+    "/v1/platform/projects%2Fsecret",
+    "/v1/platform\\projects",
+    "/v1/platform/%5cprojects",
+    "/v1/platform/projects#fragment",
+    "/v1/platform/projects/%zz",
+    "/v1/platform/projects/100%",
+    "/v1/platform/%E0%A4%A",
+    "/v1/platform/pro jects"
+  ]
+}
